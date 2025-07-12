@@ -17,7 +17,7 @@ Guidelines:
 - Keep responses concise and helpful
 - Remember the user's name and previous questions to provide personalized advice
 
-If someone asks about topics unrelated to L'Oréal or beauty, respond with: "I'm here to help with L'Oréal products and beauty advice. How can I assist you with your beauty routine or product recommendations?"`;
+If someone asks about topics unrelated to L'Oréal or beauty, respond with: "Sorry. I'm here to help with L'Oréal products, beauty, skincare, haircare, and makeup advice. How can I assist you with your beauty routine or product recommendations?"`;
 
 // Conversation history to maintain context
 let conversationHistory = [];
@@ -25,7 +25,7 @@ let conversationHistory = [];
 // Set initial message
 chatWindow.innerHTML = "";
 addMessage(
-  "👋 Hello! I'm your L'Oréal Smart Product Advisor. What's your name, and how can I help you today?",
+  "👋 Hello! I'm your L'Oréal Smart Beauty Advisor. What's your name, and how can I help you today?",
   "ai"
 );
 
