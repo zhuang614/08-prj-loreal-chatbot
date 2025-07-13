@@ -4,37 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat Assistant</title>
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <div class="page-wrapper">
-      <!------- Header / Branding ------->
       <header class="site-header">
         <img src="img/loreal-logo.png" alt="L'Oréal Logo" class="site-logo" />
-        <h1 class="site-title">Smart Beauty Advisor</h1>
+        <h1 class="site-title">Smart Product Advisor</h1>
       </header>
 
-      <!------- Chat Area ------->
       <main>
         <section class="chatbox">
-          <!-- Current user question display -->
-          <div
-            id="currentQuestion"
-            class="current-question"
-            style="display: none"
-          >
+          <div id="currentQuestion" class="current-question hidden">
             <div class="question-label">Current Question:</div>
             <div class="question-text"></div>
           </div>
 
-          <div id="chatWindow" class="chat-window">
-            <!-- messages will be appended here via JS -->
-          </div>
+          <div id="chatWindow" class="chat-window"></div>
 
           <form id="chatForm" class="chat-form">
             <label for="userInput" class="visually-hidden">Message</label>
@@ -54,11 +42,9 @@
         </section>
       </main>
 
-      <!------- Footer Links ------->
       <footer class="site-footer">
         <p>&copy; 2025 Company Name. All rights reserved.</p>
         <nav>
-          <!-- These URLs are placeholders -->
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Use</a>
           <a href="#">Contact</a>
@@ -66,7 +52,6 @@
       </footer>
     </div>
 
-    <!-- Using Cloudflare Worker for secure API requests -->
     <script src="script.js"></script>
   </body>
 </html>
