@@ -21,7 +21,6 @@ body {
 
 /* ——— Header ——— */
 .site-header {
-  position: relative;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   padding: 50px 0 20px;
@@ -73,18 +72,18 @@ body {
 .chat-window {
   height: 360px;
   padding: 20px;
-  border: 1px solid #e3a535;
   overflow-y: auto;
   background: #fff;
   color: #000;
   font-size: 16px;
   line-height: 1.5;
+  border: 1px solid #e3a535;
   display: flex;
   flex-direction: column;
   white-space: pre-wrap;
 }
 
-/* Message bubbles */
+/* ——— Message Bubbles ——— */
 .msg {
   display: flex;
   align-items: flex-start;
@@ -102,47 +101,45 @@ body {
 .msg-bubble {
   max-width: 80%;
   padding: 12px 16px;
+  border-radius: 18px;
   line-height: 1.4;
   word-wrap: break-word;
   position: relative;
-  border-radius: 18px;
 }
 
 .msg.user .msg-bubble {
   background: #ff003b;
   color: #fff;
-  border-bottom-right-radius: 4px;
   margin-left: 20%;
+  border-bottom-right-radius: 4px;
 }
 
 .msg.ai .msg-bubble {
   background: #333;
   color: #fff;
-  border-bottom-left-radius: 4px;
   margin-right: 20%;
+  border-bottom-left-radius: 4px;
 }
 
 /* Bubble tails */
-.msg.user .msg-bubble::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: -8px;
-  width: 0;
-  height: 0;
-  border-left: 8px solid #ff003b;
-  border-bottom: 8px solid transparent;
-}
-
+.msg.user .msg-bubble::after,
 .msg.ai .msg-bubble::after {
   content: "";
   position: absolute;
   bottom: 0;
-  left: -8px;
   width: 0;
   height: 0;
-  border-right: 8px solid #333;
   border-bottom: 8px solid transparent;
+}
+
+.msg.user .msg-bubble::after {
+  right: -8px;
+  border-left: 8px solid #ff003b;
+}
+
+.msg.ai .msg-bubble::after {
+  left: -8px;
+  border-right: 8px solid #333;
 }
 
 /* ——— Input Form ——— */

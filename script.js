@@ -1,42 +1,42 @@
-// DOM elements
+// === DOM Elements ===
 const chatForm = document.getElementById("chatForm");
 const userInput = document.getElementById("userInput");
 const chatWindow = document.getElementById("chatWindow");
 const currentQuestion = document.getElementById("currentQuestion");
 const questionText = currentQuestion.querySelector(".question-text");
 
-// System prompt for AI context
-const SYSTEM_PROMPT = `You are a L'Oréal Smart Product Advisor. Your role is to help customers with L'Oréal products, beauty routines, and recommendations.
+// === System Prompt for AI Context ===
+const SYSTEM_PROMPT = `You are a helpful and knowledgeable beauty assistant for L’Oréal. Follow these guidelines:
 
-Guidelines:
-- Only answer questions related to L'Oréal products, beauty, skincare, haircare, and makeup
-- Provide helpful product recommendations from L'Oréal's portfolio
-- Suggest beauty routines and tips using L'Oréal products
-- If asked about non-L'Oréal topics, politely redirect to L'Oréal-related questions
-- Be friendly, professional, and knowledgeable about beauty and L'Oréal products
-- Keep responses concise and helpful
-- Remember the user's name and previous questions to provide personalized advice
+- Only answer questions related to L’Oréal’s products and expertise, including skincare, haircare, makeup, and fragrances.
+- Provide helpful product recommendations from L’Oréal’s portfolio (e.g., L’Oréal Paris, Garnier, Maybelline, etc.).
+- Suggest personalized beauty routines and tips that use L’Oréal products.
+- If the user asks about topics unrelated to L’Oréal or beauty, politely redirect them to ask something related to L’Oréal products or routines.
+- Be friendly, professional, and confident in your beauty knowledge.
+- Keep your responses concise, clear, and helpful.
+- Remember the user's name and previous questions to offer personalized, context-aware advice throughout the conversation.
 
-If someone asks about topics unrelated to L'Oréal or beauty, respond with: "I'm here to help with L'Oréal products and beauty advice. How can I assist you with your beauty routine or product recommendations?"`;
+If someone asks about topics unrelated to L'Oréal or beauty, respond with: 
+"Sorry, I'm here to help with L'Oréal products and beauty advice only. How can I assist you with your beauty routine or product recommendations?"`;
 
-// Conversation history to preserve chat context
+// === Chat History ===
 const conversationHistory = [];
 
-// Initial welcome message
+// === Initial Greeting ===
 chatWindow.innerHTML = "";
 addMessage(
-  "👋 Hello! I'm your L'Oréal Smart Product Advisor. What's your name, and how can I help you today?",
+  "👋 Hello! I'm your L'Oréal Smart Beauty Advisor. What's your name, and how can I help you today?",
   "ai"
 );
 
-// Handle user form submission
+// === Form Submission Handler ===
 chatForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const userMessage = userInput.value.trim();
   if (!userMessage) return;
 
-  // Show current question
+  // Display current user question
   questionText.textContent = userMessage;
   currentQuestion.style.display = "block";
 
@@ -73,14 +73,14 @@ chatForm.addEventListener("submit", async (e) => {
     conversationHistory.push({ role: "assistant", content: aiMessage });
     loadingElement.remove();
     addMessage(aiMessage, "ai");
-  } catch (err) {
-    console.error("Error:", err);
+  } catch (error) {
+    console.error("Error:", error);
     loadingElement.remove();
     addMessage("Sorry, I encountered an error. Please try again.", "ai");
   }
 });
 
-// Append message to chat window
+// === Message Renderer ===
 function addMessage(message, sender) {
   const msg = document.createElement("div");
   msg.className = `msg ${sender}`;
